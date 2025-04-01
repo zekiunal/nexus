@@ -1,0 +1,25 @@
+{
+  "name": "zekiunal/nexus",
+  "description": "Lightweight, high-performance PHP router implementation based on fast-route with simple array configuration",
+  "type": "framework",
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/zekiunal/router.git"
+    }
+  ],
+  "require": {
+    "php": "^8.4",
+    "ext-sockets": "*",
+    "ext-posix": "*",
+    "ext-pcntl": "*",
+    "zekiunal/router": "dev-main",
+    "monolog/monolog": "3.9.0",
+    "php-di/php-di": "7.0.9"
+  },
+  "autoload": {
+    "psr-4": {
+      "Nexus\\": "src/"
+    }
+  }
+}
