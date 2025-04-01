@@ -2,12 +2,6 @@
   "name": "zekiunal/nexus",
   "description": "Lightweight, high-performance PHP router implementation based on fast-route with simple array configuration",
   "type": "framework",
-  "repositories": [
-    {
-      "type": "vcs",
-      "url": "https://github.com/zekiunal/router.git"
-    }
-  ],
   "require": {
     "php": "^8.4",
     "ext-sockets": "*",
