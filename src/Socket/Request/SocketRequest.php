@@ -242,14 +242,6 @@ class SocketRequest extends AbstractRequest
         return $decoded;
     }
 
-    protected function handleMessage(array $routes, array $message)
-    {
-        $handleMessageUseCase = new HandleMessageUseCase($this->container->get(RouterRepositoryInterface::class));
-        $response = $handleMessageUseCase->execute($message);
-        unset($handleMessageUseCase);
-        return $response;
-    }
-
     /**
      * @throws \Nexus\Socket\SocketException
      */

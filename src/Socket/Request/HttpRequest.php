@@ -62,14 +62,6 @@ class HttpRequest extends AbstractRequest
         return $request;
     }
 
-    protected function handleMessage(array $routes, array $message): array
-    {
-        $handleMessageUseCase = new HandleMessageUseCase($this->container->get(RouterRepositoryInterface::class));
-        $response = $handleMessageUseCase->execute($message);
-        unset($handleMessageUseCase);
-        return $response;
-    }
-
     /**
      * @throws \Exception
      */

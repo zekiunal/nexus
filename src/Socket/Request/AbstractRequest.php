@@ -5,6 +5,8 @@ namespace Nexus\Socket\Request;
 use Monolog\Handler\StreamHandler;
 use Monolog\Level;
 use Monolog\Logger;
+use Nexus\Domain\Repository\RouterRepositoryInterface;
+use Nexus\Domain\UseCase\Router\HandleMessageUseCase;
 use Nexus\Socket\Security;
 use Psr\Container\ContainerInterface;
 use Psr\Log\LoggerInterface;
@@ -34,5 +36,11 @@ abstract class AbstractRequest
         $this->security = Security::getInstance();
     }
 
-
+    protected function handleMessage(array $routes, array $message): array
+    {
+        $handleMessageUseCase = new HandleMessageUseCase($this->container->get(RouterRepositoryInterface::class));
+        $response = $handleMessageUseCase->execute($message);
+        unset($handleMessageUseCase);
+        return $response;
+    }
 }
